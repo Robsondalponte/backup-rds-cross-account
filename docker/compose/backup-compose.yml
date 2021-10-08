@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  backup_generator:
+    image: rodrigodiez/golang-cron
+    network_mode: none
+    container_name: backup
+    build: 
+         context: "../../Backup"
+         args:
+          BUILD_FROM: rodrigodiez/golang-cron
+
+    environment:
+          SCHEDULE: "* 26 21 * * *"
